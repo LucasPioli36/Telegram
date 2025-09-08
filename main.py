@@ -151,6 +151,8 @@ app.add_handler(CommandHandler("gasto", add_gasto))
 app.add_handler(CommandHandler("ingreso", add_ingreso))
 app.add_handler(CommandHandler("gastoUSD", add_gasto_usd))
 app.add_handler(CommandHandler("ingresoUSD", add_ingreso_usd))
-app.run_polling(allowed_updates=Update.ALL_TYPES)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run_polling(allowed_updates=Update.ALL_TYPES)
 
 
