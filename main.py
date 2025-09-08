@@ -13,7 +13,16 @@ scopes = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = Credentials.from_service_account_file("credentiasCuentaServicioGastosFamiliares.json", scopes=scopes)
+import json
+
+# Obtener credenciales desde variables de entorno
+credentials_json = os.getenv("GOOGLE_CREDENTIALS")
+if credentials_json:
+    credentials_dict = json.loads(credentials_json)
+    creds = Credentials.from_service_account_info(credentials_dict, scopes=scopes)
+else:
+    # Fallback para desarrollo local
+    creds = Credentials.from_service_account_file("credentiasCuentaServicioGastosFamiliares.json", scopes=scopes)
 client = gspread.authorize(creds)
 sheet = client.open_by_key("1TIFqRmN_gl0dTnSn8W040wpRPOxqskfXfhsjVtS2NnM").sheet1
 print("Conectado a Google Sheets:", sheet.title)
