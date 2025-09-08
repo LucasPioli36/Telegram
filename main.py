@@ -57,7 +57,7 @@ async def add_gasto(update: Update, context: ContextTypes.DEFAULT_TYPE):
         usuario = update.effective_user.first_name
         
         sheet.append_row([fecha, "Gasto", monto, "UYU", categoria, usuario])
-        print(f"Agregando fila: {[fecha, 'Gasto', monto, "UYU",categoria, usuario]}")
+        ##print(f"Agregando fila: {[fecha, 'Gasto', monto, "UYU",categoria, usuario]}")
         await update.message.reply_text(f"✅ Gasto registrado: ${monto} en {categoria}")
         
     except ValueError:
@@ -87,7 +87,7 @@ async def add_ingreso(update: Update, context: ContextTypes.DEFAULT_TYPE):
         usuario = update.effective_user.first_name
         
         sheet.append_row([fecha, "Ingreso", monto, "UYU", categoria, usuario])
-        print(f"Agregando fila: {[fecha, 'Ingreso', monto, "UYU",categoria, usuario]}")
+        ##print(f"Agregando fila: {[fecha, 'Ingreso', monto, "UYU",categoria, usuario]}")
         
         await update.message.reply_text(f"✅ Ingreso registrado: ${monto} de {categoria}")
         
@@ -115,7 +115,7 @@ async def add_gasto_usd(update: Update, context: ContextTypes.DEFAULT_TYPE):
         usuario = update.effective_user.first_name
         
         sheet.append_row([fecha, "Gasto", monto, "USD", categoria, usuario])
-        print(f"Agregando fila: {[fecha, 'Gasto USD', monto, "USD",categoria, usuario]}")
+        ##print(f"Agregando fila: {[fecha, 'Gasto USD', monto, "USD",categoria, usuario]}")
         
         await update.message.reply_text(f"✅ Gasto en USD registrado: ${monto} en {categoria}")
         
@@ -143,7 +143,7 @@ async def add_ingreso_usd(update: Update, context: ContextTypes.DEFAULT_TYPE):
         usuario = update.effective_user.first_name
         
         sheet.append_row([fecha, "Ingreso", monto, "USD", categoria, usuario])
-        print(f"Agregando fila: {[fecha, 'Ingreso USD', monto, "USD",categoria, usuario]}")
+        ##print(f"Agregando fila: {[fecha, 'Ingreso USD', monto, "USD",categoria, usuario]}")
         
         await update.message.reply_text(f"✅ Ingreso en USD registrado: ${monto} de {categoria}")
         
